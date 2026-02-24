@@ -1,13 +1,10 @@
 [
   {
-    "name": "Theme Settings",
-    "settings": [
-      {
-        "type": "color",
-        "id": "primary_color",
-        "label": "Primary Color",
-        "default": "#000000"
-      }
-    ]
+    "name": "theme_info",
+    "theme_name": "VERCEL LMS",
+    "theme_version": "15.4.1",
+    "theme_author": "Mh Shihab",
+    "theme_documentation_url": "https://mh-vercel-lms.myshopify.com/",
+    "theme_support_url": "https://mh-vercel-lms.myshopify.com/"
   }
 ]

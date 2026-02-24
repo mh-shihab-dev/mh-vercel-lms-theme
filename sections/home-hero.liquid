@@ -1,0 +1,442 @@
+<style>
+  .mh_hero_section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding: 0  16px ;
+      margin: 0 0 24px;
+      background-color: #000;
+    {% if section.settings.bg_image != blank %}
+      background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    {% endif %}
+  }
+
+  
+  .mh_hero_section .hero_container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.mh_hero_section .hero_content {
+  max-width: 905px;
+  margin: 0 auto;
+}
+
+.mh_hero_section .hero_title {
+  color:#fff;
+  font-family: "Geist", sans-serif;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 110px;
+  letter-spacing: normal;
+  text-align: center;
+  margin: 0 0 25px;
+}
+
+.mh_hero_section .hero_title .hero_title_highlight {
+  background: linear-gradient(90deg, #fb923c 0%, #f472b6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mh_hero_section .hero_subtitle {
+  color: rgba(237, 237, 237, 1);
+  font-family: "Geist", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: normal;
+  text-align: center;
+  margin: 0 0 41px;
+}
+
+.mh_hero_section .hero_cta_group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 60px;
+}
+
+.mh_hero_section .hero_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 62px;
+  padding: 0 32px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 1);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: normal;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.mh_hero_section .hero_btn:hover {
+  transform: translateY(-4px);
+}
+
+.mh_hero_section .hero_btn.hero_btn_primary {
+  background: linear-gradient(
+    90deg,
+    rgba(249.0074920654297, 115.0050048828125, 22.006500244140625, 1),
+    rgba(236.0024871826172, 72.01200103759766, 153, 1) 50%,
+    rgba(147.0074920654297, 51, 233.9879913330078, 1) 100%
+  );
+}
+
+.mh_hero_section .hero_btn.hero_btn_secondary {
+  border: 1px solid rgba(75, 85, 99, 1);
+  background: rgba(31, 41, 55, 1);
+}
+
+.mh_hero_section .hero_stats_list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 31px;
+  row-gap: 12px;
+}
+
+.mh_hero_section .hero_stats_list .hero_stats_item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mh_hero_section .hero_stats_list .hero_stats_item .hero_stats_text {
+  color: rgba(156, 163, 175, 1);
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: normal;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1280px) {
+  .mh_hero_section .hero_title {
+    font-size: 78px;
+    line-height: 94px;
+  }
+  .mh_hero_section .hero_subtitle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .mh_hero_section .hero_cta_group {
+    margin: 0 0 52px;
+  }
+  .mh_hero_section .hero_btn {
+    min-height: 58px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .mh_hero_section .hero_title {
+    font-size: 72px;
+    line-height: 86px;
+  }
+  .mh_hero_section .hero_subtitle {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .mh_hero_section .hero_cta_group {
+    margin: 0 0 44px;
+  }
+  .mh_hero_section .hero_btn {
+    min-height: 54px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mh_hero_section {
+    padding: 110px 16px 150px;
+  }
+  .mh_hero_section .hero_title {
+    font-size: 66px;
+    line-height: 76px;
+  }
+  .mh_hero_section .hero_subtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .mh_hero_section .hero_cta_group {
+    margin: 0 0 40px;
+  }
+  .mh_hero_section .hero_btn {
+    min-height: 52px;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .mh_hero_section .hero_title {
+    font-size: 52px;
+    line-height: 66px;
+    margin: 0 0 18px;
+  }
+  .mh_hero_section .hero_subtitle {
+    font-size: 16px;
+    margin: 0 0 34px;
+  }
+  .mh_hero_section .hero_btn {
+    min-height: 48px;
+    padding: 0 28px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mh_hero_section .hero_title {
+    font-size: 48px;
+    line-height: 54px;
+  }
+  .mh_hero_section .hero_btn {
+    min-height: 46px;
+    padding: 0 24px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .mh_hero_section {
+    padding: 100px 16px 120px;
+  }
+  .mh_hero_section .hero_title {
+    font-size: 42px;
+    line-height: 48px;
+  }
+  .mh_hero_section .hero_subtitle {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 0 28px;
+  }
+  .mh_hero_section .hero_cta_group {
+    flex-direction: column;
+    margin: 0 0 36px;
+  }
+  .mh_hero_section .hero_btn {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 32px;
+  }
+  .mh_hero_section .hero_stats_list {
+    column-gap: 20px;
+  }
+  .mh_hero_section .hero_stats_list .hero_stats_item .hero_stats_text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .mh_hero_section .hero_title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .mh_hero_section .hero_cta_group {
+    margin: 0 0 32px;
+  }
+  .mh_hero_section .hero_btn {
+    font-size: 14px;
+  }
+}
+
+</style>
+
+<section class="mh_hero_section">
+  <div class="hero_container">
+    <div class="hero_content">
+
+      <!-- Headline -->
+      <div class="hero_header">
+        <h1 class="hero_title">
+          {{ section.settings.heading_line_1 }} <br />
+          <span class="hero_title_highlight">
+            {{ section.settings.heading_highlight }}
+          </span>
+        </h1>
+
+        <p class="hero_subtitle">
+          {{ section.settings.subtitle }}
+        </p>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hero_cta_group">
+        {% if section.settings.primary_btn_text != blank %}
+          <a href="{{ section.settings.primary_btn_link }}" class="hero_btn hero_btn_primary">
+            <span class="hero_btn_icon">
+              {{ section.settings.primary_btn_icon }}
+            </span>
+            {{ section.settings.primary_btn_text }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.secondary_btn_text != blank %}
+          <a href="{{ section.settings.secondary_btn_link }}" class="hero_btn hero_btn_secondary">
+            <span class="hero_btn_icon">
+              {{ section.settings.secondary_btn_icon }}
+            </span>
+            {{ section.settings.secondary_btn_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Hero Stats -->
+      {% if section.blocks.size > 0 %}
+        <ul class="hero_stats_list">
+          {% for block in section.blocks %}
+            <li class="hero_stats_item" {{ block.shopify_attributes }}>
+              <span class="hero_stats_icon">
+                {{ block.settings.stat_icon }}
+              </span>
+              <span class="hero_stats_text">
+                {{ block.settings.stat_text }}
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .mh_hero_section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    {% if section.settings.bg_image != blank %}
+      background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    {% endif %}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "MH Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "Accelerate Your"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Heading Highlight",
+      "default": "Learning. Anytime."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Combine Turborepo’s intelligent build system with Vercel’s powerful infrastructure for faster builds without the maintenance burden."
+    },
+
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 120,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 120,
+      "unit": "px"
+    },
+
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Primary Button Text",
+      "default": "Start Learning"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "html",
+      "id": "primary_btn_icon",
+      "label": "Primary Button SVG Icon"
+    },
+
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Secondary Button Text",
+      "default": "Explore Courses"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "html",
+      "id": "secondary_btn_icon",
+      "label": "Secondary Button SVG Icon"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Hero Stat",
+      "settings": [
+        {
+          "type": "html",
+          "id": "stat_icon",
+          "label": "Stat SVG Icon"
+        },
+        {
+          "type": "text",
+          "id": "stat_text",
+          "label": "Stat Text",
+          "default": "500K+ Students"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "MH Hero",
+      "blocks": [
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" }
+      ]
+    }
+  ]
+}
+{% endschema %}
