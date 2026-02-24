@@ -1,0 +1,46 @@
+<style>
+.mh_featured_courses{
+background-color:#000;
+padding: 50px 16px;
+}
+
+.mh_featured_courses .course_grid{
+display:grid;
+grid-template-columns:repeat(4,1fr)
+}
+</style>
+
+<section class="mh_featured_courses">
+  <div class="container">
+    <header class="section_header">
+      <h2>{{ section.settings.title }}</h2>
+    </header>
+
+     <div class="course_grid">
+      {% assign featured_courses = collections.frontpage.products | limit: 4 %}
+      {% for product in featured_courses %}
+        {% render 'course-card', product: product %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Courses",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Featured Courses"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Featured Courses",
+    }
+  ]
+}
+{% endschema %}

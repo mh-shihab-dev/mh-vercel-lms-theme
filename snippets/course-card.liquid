@@ -1,0 +1,297 @@
+ <style>
+      .mh_course_card {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        max-width: 303px;
+        width: 100%;
+        border-radius: 14px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .mh_course_card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 14px;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(247, 198, 0, 0.15),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .mh_course_card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .mh_course_card:hover::before {
+        opacity: 1;
+      }
+
+      .mh_course_card .course_card_image {
+        width: 100%;
+        height: 172px;
+        position: relative;
+      }
+
+      .mh_course_card .course_card_image::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(15, 23, 42, 0.8) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        z-index: 0;
+      }
+
+      .mh_course_card .course_card_image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .mh_course_card .heart_icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #ffffff1a;
+        border: 1.77px solid #ffffff33;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 10;
+      }
+
+      .mh_course_card .course_card_content {
+        padding: 20px;
+        background-color: #181c1f66;
+        border: 1px solid #33415580;
+        border-top: 0;
+        border-radius: 0 0 14px 14px;
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+      }
+
+      .mh_course_card:hover .course_card_content {
+        background-color: #1f2937cc;
+        border-color: rgba(247, 198, 0, 0.4);
+      }
+
+      .mh_course_card .course_card_title {
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: normal;
+        height: 52px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin: 0 0 8px;
+      }
+
+      .mh_course_card .course_card_desc {
+        color: #e2e2e2;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: normal;
+        height: 36px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin: 0 0 16px;
+      }
+
+      .mh_course_card .course_card_meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin: 0 0 24px;
+      }
+
+      .mh_course_card .course_card_meta li {
+        display: inline-flex;
+        align-content: inherit;
+        gap: 5px;
+        color: #e2e2e2;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21.1px;
+        letter-spacing: normal;
+      }
+
+      .mh_course_card .course_card_meta li .icon {
+        height: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mh_course_card .card_bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .mh_course_card .course_card_pricing {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .mh_course_card .course_card_pricing .course_current {
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 33.77px;
+        letter-spacing: normal;
+        text-decoration: none;
+      }
+
+      .mh_course_card .course_card_pricing .course_old {
+        color: #64748b;
+        font-family: "Inter", sans-serif;
+        font-size: 14.77px;
+        font-weight: 400;
+        line-height: 21.1px;
+        letter-spacing: normal;
+        text-decoration-line: line-through;
+      }
+
+      .mh_course_card .course_card_enroll_btn {
+        min-height: 36px;
+        padding: 0 27px;
+        background-color: #f7c600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        color: #000000;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 27px;
+        letter-spacing: -0.3px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration:none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .mh_course_card:hover .course_card_enroll_btn {
+        transform: scale(1.06);
+        box-shadow: 0 8px 20px rgba(247, 198, 0, 0.45);
+      }
+    </style>
+
+<a 
+  href="{{ product.url }}" 
+  class="mh_course_card" 
+  role="link" 
+  tabindex="0"
+>
+
+  <!-- COURSE IMAGE -->
+  <figure class="course_card_image">
+    {% if product.featured_image %}
+      <img
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        alt="{{ product.title | escape }}"
+        loading="lazy"
+      >
+    {% endif %}
+
+    <!-- Heart Icon -->
+    <span class="heart_icon">
+      <!-- SVG HERE -->
+    </span>
+  </figure>
+
+  <!-- COURSE CONTENT -->
+  <div class="course_card_content">
+
+    <h2 class="course_card_title">
+      {{ product.title }}
+    </h2>
+
+    <p class="course_card_desc">
+      {{ product.description | strip_html | truncate: 120 }}
+    </p>
+
+    <!-- COURSE META -->
+    <ul class="course_card_meta">
+      <li>
+        <span class="icon"><!-- SVG for duration --></span>
+        {{ product.metafields.custom.duration | default: '0 hours' }}
+      </li>
+      <li>
+        <span class="icon"><!-- SVG for students --></span>
+        {{ product.metafields.custom.students | default: '0' }}
+      </li>
+      <li>
+        <span class="icon"><!-- SVG for rating --></span>
+        {{ product.metafields.custom.rating | default: '0.0' }}
+      </li>
+    </ul>
+
+    <!-- CARD BOTTOM -->
+    <div class="card_bottom">
+
+      <!-- PRICE -->
+      <div class="course_card_pricing">
+        <ins class="course_current">{{ product.price | money }}</ins>
+        {% if product.compare_at_price > product.price %}
+          <del class="course_old">{{ product.compare_at_price | money }}</del>
+        {% endif %}
+      </div>
+
+      <!-- ENROLL BUTTON: direct checkout -->
+     <form
+        method="post"
+        action="/cart/add"
+        onClick="event.stopPropagation();"
+      >
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="return_to" value="/cart">
+
+        <button type="submit" class="course_card_enroll_btn">
+         Enroll
+          </span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+</a>
