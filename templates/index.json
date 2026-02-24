@@ -11,8 +11,31 @@
   "sections": {
     "hero": {
       "type": "home-hero",
-      "settings": {}
+      "settings": {
+        "heading_line_1": "Accelerate Your",
+        "heading_highlight": "Learning. Anytime.",
+        "subtitle": "Combine Turborepo’s intelligent build system with Vercel’s powerful infrastructure for faster builds without the maintenance burden.",
+        "bg_image": "shopify://shop_images/hero-bg.png",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "primary_btn_text": "Start Learning",
+        "primary_btn_link": "",
+        "primary_btn_icon": "",
+        "secondary_btn_text": "Explore Courses",
+        "secondary_btn_link": "",
+        "secondary_btn_icon": ""
+      }
+    },
+    "feature_course_8ienN6": {
+      "type": "feature-course",
+      "name": "Featured Courses",
+      "settings": {
+        "title": "Featured Courses"
+      }
     }
   },
-  "order": ["hero"]
+  "order": [
+    "hero",
+    "feature_course_8ienN6"
+  ]
 }
