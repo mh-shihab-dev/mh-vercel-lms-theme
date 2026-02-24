@@ -1,10 +1,11 @@
 <style>
-  .mh_hero_section {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-      padding: 0  16px ;
-      margin: 0 0 24px;
-      background-color: #000;
+.mh_hero_section {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 0 24px;
+    background-color: #000;
+    padding-top: {{ section.settings.padding_top | default: 120 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 200 }}px;
     {% if section.settings.bg_image != blank %}
       background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});
       background-size: cover;
@@ -310,18 +311,8 @@
   </div>
 </section>
 
-<style>
-  .mh_hero_section {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    {% if section.settings.bg_image != blank %}
-      background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    {% endif %}
-  }
-</style>
+
+
 
 {% schema %}
 {

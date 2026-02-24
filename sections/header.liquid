@@ -347,6 +347,7 @@
 
     <!-- LEFT -->
     <div class="header_left">
+
       <!-- LOGO -->
       <a href="{{ routes.root_url }}" class="logo">
         {% if section.settings.logo != blank %}
@@ -360,50 +361,34 @@
         {% endif %}
       </a>
 
-      <!-- NAV -->
-      <nav class="nav_menu">
-        {% for link in linklists.main-menu.links %}
-          
-          {% if link.title == 'Courses' %}
-            <div class="nav_item">
-              <a href="{{ link.url }}" class="nav_link">
-                {{ link.title }}
-                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown_icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.1062 0.928077L6.6421 1.39212L4.1718 3.8624C3.83008 4.20417 3.27607 4.20417 2.93436 3.8624L0.464038 1.39212L0 0.928077L0.928077 0L1.39212 0.464039L3.55308 2.625L5.71407 0.464039L6.17809 0L7.1062 0.928077Z" fill="#A1A1A1"/>
-                </svg>
-              </a>
+      <!-- NAVIGATION -->
+      {% assign main_menu = linklists['main-menu'] %}
+      {% if main_menu %}
+        <nav class="nav_menu">
+          {% for link in main_menu.links %}
+            <a href="{{ link.url }}" class="nav_link">
+              {{ link.title }}
+            </a>
+          {% endfor %}
+        </nav>
+      {% endif %}
 
-              <!-- COURSES DROPDOWN -->
-              <div class="dropdown_menu">
-                {% assign courses = collections.courses.products | limit: 2 %}
-                {% for product in courses %}
-                  <a href="{{ product.url }}">{{ product.title }}</a>
-                {% endfor %}
-              </div>
-            </div>
-          {% else %}
-            <a href="{{ link.url }}" class="nav_link">{{ link.title }}</a>
-          {% endif %}
-
-        {% endfor %}
-      </nav>
     </div>
 
     <!-- RIGHT -->
     <div class="header_right">
-      
+
       <!-- SEARCH -->
       <form action="{{ routes.search_url }}" method="get" class="search_box">
         <input type="search" name="q" placeholder="Search Courses">
         <button type="submit" class="search_icon">
-        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 8.33333C0 3.73096 3.73096 0 8.33333 0C12.9357 0 16.6667 3.73096 16.6667 8.33333C16.6667 10.3344 15.9614 12.1707 14.7858 13.6073L18.3333 17.1548L17.1548 18.3333L13.6073 14.7858C12.1707 15.9614 10.3344 16.6667 8.33333 16.6667C3.73096 16.6667 0 12.9357 0 8.33333ZM8.33333 1.66667C4.65143 1.66667 1.66667 4.65143 1.66667 8.33333C1.66667 12.0152 4.65143 15 8.33333 15C12.0152 15 15 12.0152 15 8.33333C15 4.65143 12.0152 1.66667 8.33333 1.66667Z" fill="white"/>
-</svg>
-
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 8.33333C0 3.73096 3.73096 0 8.33333 0C12.9357 0 16.6667 3.73096 16.6667 8.33333C16.6667 10.3344 15.9614 12.1707 14.7858 13.6073L18.3333 17.1548L17.1548 18.3333L13.6073 14.7858C12.1707 15.9614 10.3344 16.6667 8.33333 16.6667C3.73096 16.6667 0 12.9357 0 8.33333ZM8.33333 1.66667C4.65143 1.66667 1.66667 4.65143 1.66667 8.33333C1.66667 12.0152 4.65143 15 8.33333 15C12.0152 15 15 12.0152 15 8.33333C15 4.65143 12.0152 1.66667 8.33333 1.66667Z" fill="white"/>
+          </svg>
         </button>
       </form>
 
-      <!-- AUTH BUTTON -->
+      <!-- AUTH BUTTONS -->
       <div class="btn_group">
         {% if customer %}
           <a href="{{ routes.account_url }}" class="btn">Account</a>
@@ -420,48 +405,29 @@
         <span></span>
         <span></span>
       </div>
+
     </div>
   </div>
 
   <!-- MOBILE MENU -->
-  <div class="mobile_menu" id="mobileMenu">
-
-    {% for link in linklists.main-menu.links %}
-
-      {% if link.title == 'Courses' %}
-        <div class="dropdown_group">
-          <a href="#" class="nav_link mobile_dropdown_btn">
-            Courses
-            <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown_icon">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.1062 0.928077L6.6421 1.39212L4.1718 3.8624C3.83008 4.20417 3.27607 4.20417 2.93436 3.8624L0.464038 1.39212L0 0.928077L0.928077 0L1.39212 0.464039L3.55308 2.625L5.71407 0.464039L6.17809 0L7.1062 0.928077Z" fill="#A1A1A1"/>
-            </svg>
-          </a>
-
-          <div class="mobile_dropdown_list">
-            {% assign courses = collections.courses.products | limit: 2 %}
-            {% for product in courses %}
-              <a href="{{ product.url }}">{{ product.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-
-      {% else %}
+  {% if main_menu %}
+    <div class="mobile_menu" id="mobileMenu">
+      {% for link in main_menu.links %}
         <a href="{{ link.url }}">{{ link.title }}</a>
-      {% endif %}
+      {% endfor %}
 
-    {% endfor %}
-
-    <div class="btn_group small_device">
-      {% if customer %}
-        <a href="{{ routes.account_url }}" class="btn">Account</a>
-        <a href="{{ routes.account_logout_url }}" class="btn btn_primary">Logout</a>
-      {% else %}
-        <a href="{{ routes.account_login_url }}" class="btn">Login</a>
-        <a href="{{ routes.account_register_url }}" class="btn btn_primary">Sign Up</a>
-      {% endif %}
+      <div class="btn_group small_device">
+        {% if customer %}
+          <a href="{{ routes.account_url }}" class="btn">Account</a>
+          <a href="{{ routes.account_logout_url }}" class="btn btn_primary">Logout</a>
+        {% else %}
+          <a href="{{ routes.account_login_url }}" class="btn">Login</a>
+          <a href="{{ routes.account_register_url }}" class="btn btn_primary">Sign Up</a>
+        {% endif %}
+      </div>
     </div>
+  {% endif %}
 
-  </div>
 </header>
 
 <script>
