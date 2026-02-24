@@ -1,0 +1,505 @@
+<style>
+  /* HEADER */
+.mh_site_header {
+  padding: 18px 16px;
+  background: #0f0f0f;
+  z-index: 999;
+}
+
+.mh_site_header .header_container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mh_site_header .header_left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.mh_site_header .nav_menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mh_site_header .nav_item {
+  position: relative;
+  cursor: pointer;
+}
+
+.mh_site_header .nav_link {
+  color: rgba(161, 161, 161, 1);
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: -0.15px;
+  text-align: left;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.mh_site_header .nav_link:hover {
+  color: #fff;
+}
+
+/* DROPDOWN */
+.dropdown_menu {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: #1c1c1c;
+  padding: 12px 0;
+  width: 180px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown_menu a {
+  display: block;
+  padding: 10px 18px;
+  color: rgba(161, 161, 161, 1);
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: -0.15px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.dropdown_menu a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.nav_item:hover .dropdown_menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mh_site_header .header_right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.mh_site_header .search_box {
+  max-width: 243px;
+  width: 100%;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 6px;
+  background: rgba(31, 31, 31, 1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mh_site_header .search_box input {
+  background: transparent;
+  border: none;
+  width: 100%;
+  outline: none;
+  color: rgba(255, 255, 255, 1);
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: normal;
+}
+
+.mh_site_header .search_box .search_icon {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.mh_site_header .mh_search_icon {
+  border: none;
+  outline: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(31, 31, 31, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+}
+
+.mh_site_header .btn_group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mh_site_header .btn_group.small_device {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  display: none;
+}
+
+.mh_site_header .btn_group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 6px;
+  padding: 0 24px;
+  outline: none;
+  color: rgba(255, 255, 255, 1);
+  font-family: "Geist", sans-serif;
+  font-size: 14.77px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  box-sizing: border-box;
+  border: 1px solid rgba(31, 31, 31, 1);
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.mh_site_header .btn_group .btn.btn_primary {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.mh_site_header .btn_group .btn:hover,
+.mh_site_header .btn_group .btn.btn_primary:hover {
+  background: rgba(31, 41, 55, 1);
+  border-color: rgba(75, 85, 99, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* MOBILE MENU */
+.mh_site_header .mobile_toggle {
+  width: 32px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.mh_site_header .mobile_toggle span {
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+/* MOBILE NAV */
+.mh_site_header .mobile_menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  min-height: 100vh;
+  background: #111;
+  padding: 80px 30px;
+  transition: 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: -2;
+}
+
+.mh_site_header .mobile_menu.open {
+  right: 0;
+}
+
+.mh_site_header .mobile_menu a {
+  color: rgba(161, 161, 161, 1);
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: -0.15px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.mh_site_header .mobile_dropdown_list {
+  padding: 0 0 0 20px;
+}
+
+.mh_site_header .dropdown_icon {
+  transition: 0.3s ease;
+  margin-left: 4px;
+}
+.mh_site_header .nav_item:hover .dropdown_icon {
+  transform: rotate(180deg);
+}
+
+.mh_site_header .mobile_dropdown_btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+.mh_site_header .mobile_dropdown_list {
+  display: none;
+  flex-direction: column;
+  margin-top: 8px;
+}
+.mh_site_header .mobile_dropdown_list a {
+  font-size: 16px;
+  padding: 8px 0;
+}
+.mh_site_header .mobile_dropdown_list.open {
+  display: flex;
+}
+.mh_site_header .mobile_toggle.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.mh_site_header .mobile_toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.mh_site_header .mobile_toggle.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1160px) {
+  .mh_site_header .header_right {
+    gap: 20px;
+  }
+  .mh_site_header .search_box {
+    display: none;
+  }
+  .mh_site_header .mh_search_icon {
+    display: block;
+  }
+}
+
+@media (max-width: 992px) {
+  .mh_site_header .nav_menu {
+    display: none;
+  }
+
+  .mh_site_header .search_box {
+    display: flex;
+  }
+  .mh_site_header .mh_search_icon {
+    display: none;
+  }
+
+  .mh_site_header .mobile_toggle {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mh_site_header .search_box {
+    display: none;
+  }
+  .mh_site_header .mh_search_icon {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .mh_site_header .btn_group {
+    display: none;
+  }
+
+  .mh_site_header .btn_group.small_device {
+    display: flex;
+  }
+}
+@media screen and (max-width: 380px) {
+  .mh_site_header .btn_group.small_device {
+    gap: 6px;
+  }
+  .mh_site_header .btn_group.small_device .btn {
+    min-height: 36px;
+    font-size: 14px;
+    padding: 0 16px;
+  }
+}
+
+</style>
+
+<header class="mh_site_header">
+  <div class="header_container">
+
+    <!-- LEFT -->
+    <div class="header_left">
+      <!-- LOGO -->
+      <a href="{{ routes.root_url }}" class="logo">
+        {% if section.settings.logo != blank %}
+          <img
+            src="{{ section.settings.logo | image_url: width: 220 }}"
+            alt="{{ shop.name }}"
+            loading="lazy"
+          >
+        {% else %}
+          {{ shop.name }}
+        {% endif %}
+      </a>
+
+      <!-- NAV -->
+      <nav class="nav_menu">
+        {% for link in linklists.main-menu.links %}
+          
+          {% if link.title == 'Courses' %}
+            <div class="nav_item">
+              <a href="{{ link.url }}" class="nav_link">
+                {{ link.title }}
+                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown_icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.1062 0.928077L6.6421 1.39212L4.1718 3.8624C3.83008 4.20417 3.27607 4.20417 2.93436 3.8624L0.464038 1.39212L0 0.928077L0.928077 0L1.39212 0.464039L3.55308 2.625L5.71407 0.464039L6.17809 0L7.1062 0.928077Z" fill="#A1A1A1"/>
+                </svg>
+              </a>
+
+              <!-- COURSES DROPDOWN -->
+              <div class="dropdown_menu">
+                {% assign courses = collections.courses.products | limit: 2 %}
+                {% for product in courses %}
+                  <a href="{{ product.url }}">{{ product.title }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% else %}
+            <a href="{{ link.url }}" class="nav_link">{{ link.title }}</a>
+          {% endif %}
+
+        {% endfor %}
+      </nav>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="header_right">
+      
+      <!-- SEARCH -->
+      <form action="{{ routes.search_url }}" method="get" class="search_box">
+        <input type="search" name="q" placeholder="Search Courses">
+        <button type="submit" class="search_icon">
+          🔍
+        </button>
+      </form>
+
+      <!-- AUTH BUTTON -->
+      <div class="btn_group">
+        {% if customer %}
+          <a href="{{ routes.account_url }}" class="btn">Account</a>
+          <a href="{{ routes.account_logout_url }}" class="btn btn_primary">Logout</a>
+        {% else %}
+          <a href="{{ routes.account_login_url }}" class="btn">Login</a>
+          <a href="{{ routes.account_register_url }}" class="btn btn_primary">Sign Up</a>
+        {% endif %}
+      </div>
+
+      <!-- MOBILE TOGGLE -->
+      <div class="mobile_toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile_menu" id="mobileMenu">
+
+    {% for link in linklists.main-menu.links %}
+
+      {% if link.title == 'Courses' %}
+        <div class="dropdown_group">
+          <a href="#" class="nav_link mobile_dropdown_btn">
+            Courses
+            <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown_icon">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.1062 0.928077L6.6421 1.39212L4.1718 3.8624C3.83008 4.20417 3.27607 4.20417 2.93436 3.8624L0.464038 1.39212L0 0.928077L0.928077 0L1.39212 0.464039L3.55308 2.625L5.71407 0.464039L6.17809 0L7.1062 0.928077Z" fill="#A1A1A1"/>
+            </svg>
+          </a>
+
+          <div class="mobile_dropdown_list">
+            {% assign courses = collections.courses.products | limit: 2 %}
+            {% for product in courses %}
+              <a href="{{ product.url }}">{{ product.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+
+      {% else %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endif %}
+
+    {% endfor %}
+
+    <div class="btn_group small_device">
+      {% if customer %}
+        <a href="{{ routes.account_url }}" class="btn">Account</a>
+        <a href="{{ routes.account_logout_url }}" class="btn btn_primary">Logout</a>
+      {% else %}
+        <a href="{{ routes.account_login_url }}" class="btn">Login</a>
+        <a href="{{ routes.account_register_url }}" class="btn btn_primary">Sign Up</a>
+      {% endif %}
+    </div>
+
+  </div>
+</header>
+
+<script>
+  const mobileToggle = document.getElementById("mobileToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  mobileToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle("open");
+    mobileToggle.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".mobile_dropdown_btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const list = btn.nextElementSibling;
+      list.classList.toggle("open");
+      btn.querySelector(".dropdown_icon").classList.toggle("rotate");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      mobileMenu.classList.remove("open");
+      mobileToggle.classList.remove("active");
+
+      document.querySelectorAll(".mobile_dropdown_list.open").forEach((el) => {
+        el.classList.remove("open");
+      });
+
+      document.querySelectorAll(".dropdown_icon.rotate").forEach((el) => {
+        el.classList.remove("rotate");
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "LMS Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Upload Logo"
+    }
+  ]
+}
+{% endschema %}
