@@ -1,27 +1,80 @@
 <style>
-.mh_featured_courses{
-background-color:#000;
-padding: 50px 16px;
+.mh_featured_courses {
+  background-color: #000;
+  padding: 60px 16px;
 }
 
-.mh_featured_courses .course_grid{
-display:grid;
-grid-template-columns:repeat(4,1fr)
+.mh_featured_courses_container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.mh_featured_courses_header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mh_featured_courses_title {
+ color: #fff;
+ font-family: "Geist", sans-serif;
+font-weight: 700;
+font-style: Bold;
+font-size: 56px;
+line-height: 72px;
+letter-spacing: normal;
+text-align: center;
+
+}
+
+.mh_featured_courses_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .mh_featured_courses_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .mh_featured_courses_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mh_featured_courses_title {
+    font-size: 24px;
+  }
 }
 </style>
-
 <section class="mh_featured_courses">
-  <div class="container">
-    <header class="section_header">
-      <h2>{{ section.settings.title }}</h2>
-    </header>
+  <div class="mh_featured_courses_container">
 
-     <div class="course_grid">
-      {% assign featured_courses = collections.frontpage.products | limit: 4 %}
-      {% for product in featured_courses %}
-        {% render 'course-card', product: product %}
-      {% endfor %}
-    </div>
+    {% if section.settings.title != blank %}
+      <div class="mh_featured_courses_header">
+        <h2 class="mh_featured_courses_title">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {% endif %}
+
+    {% assign selected_collection = collections.frontpage %}
+
+    {% if selected_collection and selected_collection.products_count > 0 %}
+      <div class="mh_featured_courses_grid">
+        {% for product in selected_collection.products limit: 4 %}
+          {% render 'course-card', product: product %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="color:#fff; text-align:center;">
+        No products found in Home page collection.
+      </p>
+    {% endif %}
+
   </div>
 </section>
 
@@ -35,11 +88,10 @@ grid-template-columns:repeat(4,1fr)
       "label": "Section Title",
       "default": "Featured Courses"
     }
-
   ],
   "presets": [
     {
-      "name": "Featured Courses",
+      "name": "Featured Courses"
     }
   ]
 }
