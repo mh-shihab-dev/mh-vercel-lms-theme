@@ -1,0 +1,118 @@
+<style>
+.mh_all_products {
+  padding: 60px 16px;
+  background-color: #000;
+  color:#fff;
+}
+
+.mh_collection_header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.mh_collection_title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.mh_collection_description {
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.7;
+}
+
+.mh_product_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.mh_pagination {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.mh_no_products {
+  text-align: center;
+  padding: 40px 0;
+}
+</style>
+
+
+
+<section class="mh_all_products section-{{ section.id }}">
+  <div class="page-width">
+
+    {% if section.settings.show_collection_title %}
+      <div class="mh_collection_header">
+        <h1 class="mh_collection_title">
+          {{ collection.title }}
+        </h1>
+
+        {% if collection.description != blank %}
+          <div class="mh_collection_description">
+            {{ collection.description }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% paginate collection.products by section.settings.products_per_page %}
+
+      {% if collection.products_count > 0 %}
+
+        <div class="mh_product_grid">
+          {% for product in collection.products %}
+            {% render 'course-card', product: product %}
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <nav class="mh_pagination">
+            {{ paginate | default_pagination }}
+          </nav>
+        {% endif %}
+
+      {% else %}
+        <p class="mh_no_products">
+          No products found.
+        </p>
+      {% endif %}
+
+    {% endpaginate %}
+
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Main All Products",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_collection_title",
+      "label": "Show collection title & description",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 4,
+      "max": 36,
+      "step": 4,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main All Products"
+    }
+  ]
+}
+{% endschema %}
