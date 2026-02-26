@@ -1,0 +1,897 @@
+<style>
+          .mh_course_hero {
+        padding: 151px 16px 101px;
+        background:
+          radial-gradient(
+            140.01% 140.01% at 1% 1%,
+            #7c2d3c 0%,
+            rgba(124, 45, 60, 0) 50%
+          ),
+          radial-gradient(
+            113.14% 141.42% at 80% 100%,
+            #171717 0%,
+            rgba(23, 23, 23, 0) 50%
+          ),
+          linear-gradient(0deg, #191919, #191919);
+        color: #fff;
+      }
+
+      .mh_course_hero .course_hero_container {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 40px;
+      }
+
+      .mh_course_hero .course_info {
+        max-width: 663px;
+        width: 100%;
+      }
+
+      .mh_course_hero .breadcrumb_nav .breadcrumb_list {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        flex-wrap: wrap;
+        list-style: none;
+      }
+
+      .mh_course_hero .breadcrumb_nav .breadcrumb_list li a,
+      .mh_course_hero .breadcrumb_nav .breadcrumb_list .breadcrumb_current {
+        color: #e2e2e2;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: normal;
+        text-decoration: none;
+      }
+
+      .mh_course_hero .course_hero_content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 16px;
+      }
+
+      .mh_course_hero .course_info {
+        max-width: 663px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 60px;
+      }
+
+      .mh_course_hero .course_info .course_header {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 32px;
+      }
+
+      .mh_course_hero .course_info .course_header_top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .mh_course_hero .course_title {
+        color: rgba(247, 67, 102, 1);
+        font-family: "Geist", sans-serif;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 73px;
+        letter-spacing: normal;
+        text-align: left;
+      }
+
+      .mh_course_hero .course_description {
+        color: rgba(226, 226, 226, 1);
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: normal;
+      }
+
+      .mh_course_hero .course_meta_list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+        row-gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .mh_course_hero .course_meta_list .meta_item {
+        min-height: 42px;
+        padding: 0 17px;
+        background-color: #06060640;
+        border-radius: 9999px;
+        list-style: none;
+        border: 1px solid #ffffff1a;
+        backdrop-filter: blur(4px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .mh_course_hero .course_meta_list .meta_item .meta_icon {
+        width: 16px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mh_course_hero .course_meta_list .meta_item .meta_text {
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: normal;
+      }
+
+      .mh_course_hero .course_meta_list .meta_item.rating .meta_text {
+        color: #e2e2e2;
+      }
+
+      .mh_course_hero .course_meta_list .meta_item.rating .meta_text strong {
+        font-weight: 600;
+      }
+
+      .mh_course_hero .course_pricing {
+        max-width: 527px;
+        width: 100%;
+        padding: 20px 30px;
+        background-color: #06060640;
+        border: 1px solid #ffffff1a;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+      }
+
+      .mh_course_hero .course_pricing .price_info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .mh_course_hero .course_pricing .pricing_value {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .mh_course_hero .course_pricing .current_price {
+        color: rgba(255, 255, 255, 1);
+        font-family: "Inter", sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: normal;
+        text-decoration: none;
+      }
+
+      .mh_course_hero .course_pricing .original_price {
+        color: #6b7280;
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: normal;
+        text-decoration-line: line-through;
+      }
+
+      .mh_course_hero .course_pricing .price_note {
+        color: rgba(156, 163, 175, 1);
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: normal;
+      }
+
+      .mh_course_hero .course_pricing .enroll_button {
+        min-height: 56px;
+        padding: 0 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: #f7c600;
+        border-radius: 16px;
+        border: none;
+        outline: none;
+        color: #000000;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 27px;
+        letter-spacing: -0.3px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease,
+          background-color 0.35s ease;
+      }
+
+      .mh_course_hero .course_pricing .enroll_button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 120%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .mh_course_hero .course_pricing .enroll_button:hover {
+        transform: translateY(-4px);
+        background-color: #ffd633;
+        box-shadow: 0 14px 30px rgba(247, 198, 0, 0.45);
+      }
+
+      .mh_course_hero .course_pricing .enroll_button:hover::before {
+        left: 120%;
+      }
+
+      .mh_course_hero .course_pricing .enroll_button:active {
+        transform: translateY(-1px) scale(0.98);
+      }
+
+      /*  Right Media & Features */
+      .mh_course_hero .course_media {
+        max-width: 558px;
+        width: 100%;
+        background-color: #06060640;
+        border: 1px solid #ffffff1a;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mh_course_hero .course_media .course_video_wrapper {
+        width: 100%;
+        height: 281px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mh_course_hero .course_media .course_video_thumbnail {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mh_course_hero .course_media .course_video_thumbnail::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000066;
+        z-index: 0;
+      }
+
+      .mh_course_hero .course_media .course_video_thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .mh_course_hero .course_media .course_video_play_btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background: #06060640;
+        border: 1px solid #ffffff1a;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 4;
+        transition: all 0.3s ease;
+      }
+
+       .mh_course_hero .course_media .course_video_play_btn svg{
+        pointer-events: none;
+    }
+
+      .mh_course_hero .course_media .course_video_play_btn::before,
+      .mh_course_hero .course_media .course_video_play_btn::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid #f7c600;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+        animation: bubblePop 2.4s ease-out infinite;
+      }
+
+      .mh_course_hero .course_media .course_video_play_btn::after {
+        animation-delay: 1.2s;
+      }
+
+      /* bubble wave animation */
+      @keyframes bubblePop {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.6;
+        }
+        70% {
+          opacity: 0.25;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1.8);
+          opacity: 0;
+        }
+      }
+
+      .mh_course_hero .course_media .course_video_play_btn:hover {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+
+      .mh_course_hero .course_media .course_preview_video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        background: #000;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+      }
+
+      .mh_course_hero .course_features {
+        max-width: 435px;
+        width: 100%;
+        padding: 24px 34px 27px;
+      }
+
+      .mh_course_hero .course_features .features_title {
+        color: #fff;
+        font-family: "Geist", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: normal;
+        margin: 0 0 16px;
+      }
+
+      .mh_course_hero .course_features .feature_flex {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+      }
+
+      .mh_course_hero .course_features .features_list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .mh_course_hero .course_features .features_list li {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #d1d5db;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: normal;
+      }
+
+      .mh_course_hero .course_features .features_list li .feature_icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* RESPONSIVE STYLES */
+      @media screen and (max-width: 1280px) {
+        .mh_course_hero .course_title {
+          font-size: 48px;
+          line-height: 64px;
+        }
+
+        .mh_course_hero .course_description {
+          font-size: 18px;
+          line-height: 26px;
+        }
+
+        .mh_course_hero .course_media {
+          max-width: 520px;
+        }
+      }
+
+      @media screen and (max-width: 1140px) {
+        .mh_course_hero .course_info {
+          gap: 48px;
+        }
+
+        .mh_course_hero .course_title {
+          font-size: 44px;
+          line-height: 58px;
+        }
+
+        .mh_course_hero .course_media {
+          max-width: 420px;
+        }
+
+        .mh_course_hero .course_features {
+          padding: 24px 20px;
+        }
+      }
+
+      @media screen and (max-width: 992px) {
+        .mh_course_hero .course_hero_content {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .mh_course_hero .course_info,
+        .mh_course_hero .course_media {
+          max-width: 100%;
+        }
+
+        .mh_course_hero .course_media .course_video_wrapper {
+          height: 350px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .mh_course_hero .course_hero_container {
+          gap: 32px;
+        }
+
+        .mh_course_hero .course_info {
+          gap: 40px;
+        }
+
+        .mh_course_hero .course_title {
+          font-size: 38px;
+          line-height: 52px;
+        }
+
+        .mh_course_hero .course_pricing {
+          padding: 20px;
+        }
+
+        .mh_course_hero .course_media .course_video_wrapper {
+          height: 320px;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .mh_course_hero .course_hero_content,
+        .mh_course_hero .course_info {
+          gap: 32px;
+        }
+        .mh_course_hero .course_title {
+          font-size: 32px;
+          line-height: 44px;
+        }
+
+        .mh_course_hero .course_meta_list .meta_item {
+          min-height: 38px;
+        }
+
+        .mh_course_hero .course_meta_list .meta_item .meta_text {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        .mh_course_hero .course_pricing {
+          padding: 14px 16px;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        .mh_course_hero .course_pricing .pricing_value {
+          gap: 10px;
+        }
+
+        .mh_course_hero .course_pricing .current_price {
+          font-size: 32px;
+          line-height: 38px;
+        }
+
+        .mh_course_hero .course_pricing .original_price {
+          font-size: 18px;
+          line-height: 26px;
+        }
+
+        .mh_course_hero .course_pricing .enroll_button {
+          min-height: 48px;
+          padding: 0 20px;
+          gap: 8px;
+          font-size: 16px;
+        }
+
+        .mh_course_hero .course_media .course_video_wrapper {
+          height: 280px;
+        }
+
+        .mh_course_hero .course_features {
+          padding: 20px 16px;
+        }
+
+        .mh_course_hero .course_features .features_title {
+          font-size: 22px;
+          line-height: 28px;
+        }
+      }
+
+      @media screen and (max-width: 425px) {
+        .mh_course_hero {
+          padding: 120px 16px 80px;
+        }
+
+        .mh_course_hero .course_hero_container {
+          gap: 24px;
+        }
+
+        .mh_course_hero .breadcrumb_nav .breadcrumb_list {
+          gap: 10px;
+        }
+
+        .mh_course_hero .course_hero_content,
+        .mh_course_hero .course_info {
+          gap: 24px;
+        }
+
+        .mh_course_hero .course_info .course_header {
+          gap: 24px;
+        }
+
+        .mh_course_hero .course_info .course_header_top {
+          gap: 16px;
+        }
+
+        .mh_course_hero .course_title {
+          font-size: 28px;
+          line-height: 38px;
+        }
+
+        .mh_course_hero .course_description {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .mh_course_hero .course_meta_list {
+          column-gap: 10px;
+          row-gap: 6px;
+        }
+
+        .mh_course_hero .course_meta_list .meta_item {
+          min-height: 36px;
+          padding: 0 16px;
+          gap: 6px;
+        }
+
+        .mh_course_hero .course_meta_list .meta_item .meta_text {
+          font-size: 13px;
+          line-height: 19px;
+        }
+
+        .mh_course_hero .course_pricing {
+          padding: 10px 14px;
+        }
+
+        .mh_course_hero .course_pricing .price_info {
+          gap: 6px;
+        }
+
+        .mh_course_hero .course_pricing .current_price {
+          font-size: 28px;
+          line-height: 34px;
+        }
+
+        .mh_course_hero .course_pricing .original_price {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .mh_course_hero .course_pricing .enroll_button {
+          min-height: 40px;
+          font-size: 14px;
+        }
+
+        .mh_course_hero .course_media .course_video_wrapper {
+          height: 240px;
+        }
+
+        .mh_course_hero .course_features {
+          padding: 20px 10px;
+        }
+
+        .mh_course_hero .course_features .features_title {
+          font-size: 18px;
+          line-height: 26px;
+          margin: 0 0 12px;
+        }
+
+        .mh_course_hero .course_features .features_list li {
+          gap: 6px;
+          font-size: 13px;
+          line-height: 19px;
+        }
+      }
+
+      @media screen and (max-width: 350px) {
+        .mh_course_hero .course_media .course_video_wrapper {
+          height: 200px;
+        }
+
+        .mh_course_hero .course_description {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+</style>
+
+<section class="mh_course_hero">
+  <div class="course_hero_container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb_nav">
+      <ul class="breadcrumb_list">
+        <li>
+          <a href="{{ routes.root_url }}" class="breadcrumb_link">Home</a>
+        </li>
+
+        <li><span>
+            <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.88064 3.71L0 0.828331L0.816375 -1.90735e-06L4.52505 3.71L0.816375 7.42L0 6.59166L2.88064 3.71Z" fill="#E2E2E2"/>
+</svg>
+</span></li>
+
+        <li>
+          <a href="/collections/all" class="breadcrumb_link">Courses</a>
+        </li>
+
+        <li><span>
+            <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.88064 3.71L0 0.828331L0.816375 -1.90735e-06L4.52505 3.71L0.816375 7.42L0 6.59166L2.88064 3.71Z" fill="#E2E2E2"/>
+</svg>
+
+            </span></li>
+
+        <li class="breadcrumb_current">
+          {{ product.title }}
+        </li>
+      </ul>
+    </nav>
+
+    <div class="course_hero_content">
+
+      <!-- Left Content -->
+      <article class="course_info">
+        <div class="course_header">
+          <div class="course_header_top">
+
+            <h1 class="course_title">
+              {{ product.title }}
+            </h1>
+
+            <p class="course_description">
+              {{ product.description | strip_html | truncate: 150 }}
+            </p>
+
+          </div>
+
+          <!-- Course Meta -->
+          <ul class="course_meta_list">
+
+            {% if product.metafields.custom.rating != blank %}
+            <li class="meta_item rating">
+              <span class="meta_icon">
+                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.60857 11.84L2.90485 14.48L3.95753 9.18668L0 5.53334L5.35665 4.89334L7.60857 1.14441e-05L9.8605 4.89334L15.2171 5.53334L11.2596 9.18668L12.3123 14.48L7.60857 11.84Z" fill="#F7C600"/>
+</svg>
+
+              </span>
+              <span class="meta_text">
+                <strong>{{ product.metafields.custom.rating }}</strong>
+                ({{ product.metafields.custom.students }} students)
+              </span>
+            </li>
+            {% endif %}
+
+            {% if product.metafields.custom.duration != blank %}
+            <li class="meta_item">
+              <span class="meta_icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.6625 13.3333C5.7564 13.3333 4.89028 13.16 4.06413 12.8133C3.27351 12.4756 2.5695 11.9978 1.95211 11.38C1.33472 10.7622 0.857242 10.0578 0.519675 9.26668C0.173225 8.44001 0 7.57334 0 6.66668C0 5.76001 0.173225 4.89334 0.519675 4.06668C0.857242 3.27557 1.33472 2.57112 1.95211 1.95334C2.5695 1.33557 3.27351 0.857788 4.06413 0.520011C4.89028 0.173344 5.7564 1.04904e-05 6.6625 1.04904e-05C7.5686 1.04904e-05 8.43472 0.173344 9.26087 0.520011C10.0515 0.857788 10.7555 1.33557 11.3729 1.95334C11.9903 2.57112 12.4678 3.27557 12.8053 4.06668C13.1518 4.89334 13.325 5.76001 13.325 6.66668C13.325 7.57334 13.1518 8.44001 12.8053 9.26668C12.4678 10.0578 11.9903 10.7622 11.3729 11.38C10.7555 11.9978 10.0515 12.4756 9.26087 12.8133C8.43472 13.16 7.5686 13.3333 6.6625 13.3333ZM6.6625 12C7.63078 12 8.528 11.7556 9.35415 11.2667C10.1537 10.7956 10.7888 10.16 11.2596 9.36001C11.7482 8.53334 11.9925 7.63557 11.9925 6.66668C11.9925 5.69779 11.7482 4.80001 11.2596 3.97334C10.7888 3.17334 10.1537 2.53779 9.35415 2.06668C8.528 1.57779 7.63078 1.33334 6.6625 1.33334C5.69422 1.33334 4.797 1.57779 3.97085 2.06668C3.17135 2.53779 2.53619 3.17334 2.06538 3.97334C1.57679 4.80001 1.3325 5.69779 1.3325 6.66668C1.3325 7.63557 1.57679 8.53334 2.06538 9.36001C2.53619 10.16 3.17135 10.7956 3.97085 11.2667C4.797 11.7556 5.69422 12 6.6625 12ZM7.32875 6.66668H9.99375V8.00001H5.99625V3.33334H7.32875V6.66668Z" fill="#F7C600"/>
+</svg>
+
+              </span>
+              <span class="meta_text">
+                {{ product.metafields.custom.duration }}
+              </span>
+            </li>
+            {% endif %}
+
+            {% if product.metafields.custom.lessons != blank %}
+            <li class="meta_item">
+              <span class="meta_icon"></span>
+              <span class="meta_text">
+                {{ product.metafields.custom.lessons }} lessons
+              </span>
+            </li>
+            {% endif %}
+
+            {% if product.metafields.custom.level != blank %}
+            <li class="meta_item">
+              <span class="meta_icon"></span>
+              <span class="meta_text">
+                {{ product.metafields.custom.level }}
+              </span>
+            </li>
+            {% endif %}
+
+          </ul>
+        </div>
+
+        <!-- Pricing -->
+        <div class="course_pricing">
+    <div class="price_info">
+  <div class="pricing_value">
+    <ins class="current_price">
+      ${{ product.price | money_without_currency }}
+    </ins>
+
+    {% if product.compare_at_price > product.price %}
+      <del class="original_price">
+        ${{ product.compare_at_price | money_without_currency }}
+      </del>
+    {% endif %}
+  </div>
+
+  {% if product.metafields.course.price_note.value != blank %}
+    <span class="price_note">
+      {{ product.metafields.course.price_note.value }}
+    </span>
+  {% endif %}
+</div>
+
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <button type="submit" class="enroll_button">
+              <span><!-- svg --></span>
+              Enroll Now
+            </button>
+          </form>
+
+        </div>
+      </article>
+
+
+      <!-- Right Media & Features -->
+      <aside class="course_media">
+
+        <!-- Video preview -->
+        <figure class="course_video_wrapper">
+
+          {% if product.featured_image %}
+          <div class="course_video_thumbnail">
+            <img 
+              src="{{ product.featured_image | image_url: width: 800 }}" 
+                width="600"
+  height="{{ 600 | divided_by: product.featured_image.aspect_ratio | round }}"
+              alt="{{ product.title }}">
+          </div>
+          {% endif %}
+
+          <button
+            class="course_video_play_btn"
+           >
+          </button>
+
+        {% if product.metafields.custom.preview_video.value != blank %}
+  {{ product.metafields.custom.preview_video.value | video_tag: controls: true, class: 'course_preview_video' }}
+{% endif %}
+
+        </figure>
+
+
+        <!-- Included Features -->
+        <div class="course_features">
+          <h2 class="features_title">What's Included</h2>
+
+          <div class="feature_flex">
+
+            <div class="flex_col left">
+              <ul class="features_list">
+                {% for feature in product.metafields.course.features_left.value %}
+                <li>
+                  <span class="feature_icon"></span>
+                  {{ feature }}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="flex_col right">
+              <ul class="features_list">
+                {% for feature in product.metafields.course.features_right.value %}
+                <li>
+                  <span class="feature_icon"></span>
+                  {{ feature }}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+
+ <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        //   course preview video play handle
+        const playBtn = document.querySelector(".course_video_play_btn");
+        const coursePreviewImg = document.querySelector(
+          ".course_video_thumbnail",
+        );
+        const coursePreviewVideo = document.querySelector(
+          ".course_preview_video",
+        );
+
+        playBtn.addEventListener("click", () => {
+          // Hide image & button
+          coursePreviewImg.style.display = "none";
+          playBtn.style.display = "none";
+
+          // Show video with fade effect
+          coursePreviewVideo.style.display = "block";
+          setTimeout(() => {
+            coursePreviewVideo.style.opacity = "1";
+          }, 50);
+
+          // Auto play video
+          coursePreviewVideo.play();
+        });
+      });
+    </script>
