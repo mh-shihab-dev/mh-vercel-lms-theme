@@ -5,6 +5,9 @@
   color:#fff;
 }
 
+.mh_all_product_container{
+max-width:1300px;margin:0 auto;}
+
 .mh_collection_header {
   margin-bottom: 40px;
   text-align: center;
@@ -42,7 +45,7 @@
 
 
 <section class="mh_all_products section-{{ section.id }}">
-  <div class="page-width">
+  <div class="mh_all_product_container">
 
     {% if section.settings.show_collection_title %}
       <div class="mh_collection_header">
